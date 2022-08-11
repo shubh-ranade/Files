@@ -1,0 +1,31 @@
+{
+  "class": "org.apache.kafka.trogdor.workload.ProduceBenchSpec",
+  "durationMs": 1200000,
+  "producerNode": "cc-trogdor-service-agent-0",
+  "bootstrapServers": "pkc-d4yxgk0.us-central1.gcp.priv.cpdev.cloud:9092",
+  "targetMessagesPerSec": 10000,
+  "maxMessages": 858993458400,
+  "keyGenerator": {"type": "null"},
+  "valueGenerator": {"type": "constant", "size": 512},
+  "activeTopics": {
+    "foo[1-3]": {
+      "numPartitions": 10,
+      "replicationFactor": 3,
+      "configs": {"retention.ms": 1800000}
+    }
+  },
+  "commonClientConf" : {
+    "security.protocol" : "SASL_SSL",
+    "sasl.jaas.config":"org.apache.kafka.common.security.plain.PlainLoginModule required username=\"JZ6PRMIZFTOGFYSU\" password=\"/gGHVS/d7JogMQtkDCdZnBM3KqU52GdVOLXxF9Fd8/iSNEeFznZyx5QK1FU36v/q\";",
+    "ssl.endpoint.identification.algorithm": "https",
+    "sasl.mechanism" : "PLAIN"
+  },
+  "inactiveTopics": {
+    "foo[4-5]": {
+      "numPartitions": 10,
+      "replicationFactor": 3
+    }
+  },
+  "useConfiguredPartitioner": true,
+  "skipFlush": true
+}
